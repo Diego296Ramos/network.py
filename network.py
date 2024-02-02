@@ -110,7 +110,7 @@ class Network(object):
             ## Acumulamos los  gradientes para cada ejemplo en el mini-batch
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
             nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-            costo = self.cross_entropy_loss(self.feedforward(x), y) 
+        costo = self.cross_entropy_loss(self.feedforward(x), y) 
             #Se implementa la función CEL asociando los output_activations con feedforward
             # Se actualizan los pesos y sesgos utilizando los gradientes acumulados, 
             # Se combinan los pesos actuales con los gradientes de la retropropagación
@@ -182,14 +182,11 @@ class Network(object):
         ## La derivada de la función de costo respecto a la salida de la red
         return (output_activations-y)
 
-   def cross_entropy_loss(self, output_activations, y):
-        # Función para la cross-entropy loss, con entradas self,
-        # output_activations que es la activación, como en la función de arriba y "y"
-        # Como se uso SGD, el termino 1/n se puede omitir, entonces por pura definición la CEL es:    
-        CEL_1 = np.sum(y * np.log(output_activations))
-        CEL_2 = np.sum((1 - y) * np.log(1 - output_activations))
-        CEL = -CEL_1 - CEL_2
-        return CEL
+   def cross_entropy_loss(self, output_activations, y):    
+       CEL_1 = np.sum(y * np.log(output_activations))
+       CEL_2 = np.sum((1 - y) * np.log(1 - output_activations))
+       CEL = -CEL_1 - CEL_2
+       return CEL
 
 #### Miscellaneous functions
 def sigmoid(z):
