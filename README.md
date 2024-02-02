@@ -1,4 +1,4 @@
-# network.py TAREA 2 RNA
+# network.py 
 
-Repositorio para la segunda tarea del curso de procesos estócaicos.
+Repositorio para la primera red neuronal y sus tareas del curso de procesos estócaicos.
 
