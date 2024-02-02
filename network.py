@@ -110,9 +110,10 @@ class Network(object):
             ## Acumulamos los  gradientes para cada ejemplo en el mini-batch
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
             nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-            costo = self.cross_entropy_loss(self.feedforward(x), y) #Se implementa la función CEL asociando los output_activations con feedforward
+            costo = self.cross_entropy_loss(self.feedforward(x), y) 
+            #Se implementa la función CEL asociando los output_activations con feedforward
             # Se actualizan los pesos y sesgos utilizando los gradientes acumulados, 
-            # Combina los pesos actuales con los gradientes de la retropropagación
+            # Se combinan los pesos actuales con los gradientes de la retropropagación
         self.weights = [w-(eta/len(mini_batch))*nw
                         for w, nw in zip(self.weights, nabla_w)]
         self.biases = [b-(eta/len(mini_batch))*nb
